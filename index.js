@@ -1,14 +1,10 @@
 const express = require('express');
 
-const postGetRouter = require('./routes/post-get-book')
-const bookIdRouter = require('./routes/book-id')
-const loginRouter = require('./routes/login')
+const router = require('./routes/router-api')
 
 const app = express();
 
-app.use('/api/user/login', loginRouter)
-app.use('/api/book', postGetRouter)
-app.use('/api/book/:id', bookIdRouter)
+app.use('/', router)
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT);
